@@ -1,0 +1,45 @@
+
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" />
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;700;800&display=swap" />
+ 
+ <style>
+ /* Styling for form controls to make borders invisible */
+ .form-control {
+   border: none;            /* Removes the border */
+   outline: none;           /* Removes the focus outline */
+   box-shadow: none;        /* Removes any shadow effects */
+ }
+ .error-message {
+   color: red;
+   font-weight: bold;
+ }
+ </style>
+ 
+ <div class="main-container">
+   <div class="flex-row-ac">
+     <div class="whatsapp-image"></div>
+     <div class="rectangle"><a class="path" routerLink="/register"><span class="register">Sign up</span></a></div>
+     <span class="sign-in">Sign in</span>
+     <div class="line"></div>
+   </div>
+   <div class="flex-row-b">
+     <span class="welcome-to-community">
+       <img src="../../assets/Capture_d_écran_2024-03-11_125134-removebg-preview.png" alt="">
+     </span>
+     <div class="rectangle-1">
+       <input type="text" class="form-control" [(ngModel)]="username" placeholder="Enter your email">
+     </div>
+     <div class="rectangle-2">
+       <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password">
+     </div>
+   </div>
+   <div class="flex-row-fc">
+     <div class="rectangle-4"></div>
+     <div class="image-removebg-preview"></div>
+     <button class="rectangle-5" (click)="signIn()">
+       <span class="sign-in-6">SIGN IN</span>
+     </button>
+     <span *ngIf="errorMessage" class="error-message">{{ errorMessage }}</span>
+   </div>
+ </div>
+ 

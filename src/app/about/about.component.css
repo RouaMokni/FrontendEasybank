@@ -1,0 +1,358 @@
+
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+/* .main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.main-container {
+  position: relative;
+  width: 100vw;
+  height: 1018px;
+  margin: 0 ;
+  overflow: hidden;
+}
+.easybank-group-photo {
+  position: absolute;
+  left: 0;
+  top: -296px;
+  width:100%;
+  height: 844px;
+  background: url(../../assets/easybankgroupphoto.png)
+    no-repeat center;
+  background-size: cover;
+}
+.rectangle {
+  position: absolute;
+  left: -5px;
+  top: -4px;
+  width: 100%;
+  height: 552px;
+  background-size: cover;
+  z-index: 1;
+  opacity: 0.5;
+  background-image: linear-gradient(179.9deg,  #000f 36%, #007c7dff 91%);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.flex-column-ace {
+  position: absolute;
+  width: 1067px;
+  height: 804px;
+  top: 170px;
+  left: 155px;
+  font-size: 0px;
+  z-index: 8;
+}
+.about-us {
+  display: flex; Change display to flex to center content
+  justify-content: center; Horizontally center
+  align-items: center; Vertically center, if it's within a container
+  height: 51px;
+  margin: 0 auto; Auto margins for horizontal centering if needed
+  color: #ffffff;
+  font-family: Inter, var(--default-font-family);
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 51px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 5;
+  text-decoration: underline;
+}
+.easy-bank {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  width: 877px;
+  height: 120px;
+  margin: 80px 0 0 160px;
+  color: #f5f5f5;
+  font-family: Koulen, var(--default-font-family);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 72.266px;
+  text-align: center;
+  z-index: 4;
+}
+.why-easy-bank {
+  display: block;
+  position: relative;
+  height: 48px;
+  margin: 163px 0 0 30px;
+  color: #000f06;
+  left: 60px;
+  font-family: Inter, var(--default-font-family);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 8;
+}
+.rectangle-1 {
+  position: relative;
+  width: 689px;
+  height: 331px;
+  top: -10px;
+  left: -70px;
+  margin: 34px 0 0 0;
+  background: #F9F6F4;
+  z-index: 5;
+  border-radius: 24px;
+}
+.tunisian-fintech-startup {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  width: 670px;
+  height: 252px;
+  top: 35px;
+  left: 13px;
+  color: #000000;
+  font-family: Inter, var(--default-font-family);
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 42.358px;
+  text-align: left;
+  z-index: 7;
+}
+.capture-removebg-preview {
+  position: absolute;
+  width: 555px;
+  height: 405px;
+  top: 598px;
+  left: 744px;
+  background: url(../../assets/Capture_d_écran_2024-03-11_125134-removebg-preview.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 6;
+} */
+ :host,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+  text-decoration: none;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+:host,
+:not(span, a, ul, ol, li, p) {
+  display: flex;
+}
+
+ul,
+ol {
+  text-indent: 0;
+  padding-inline-start: 1.5em;
+}
+
+p:empty::before {
+  content: '';
+  display: inline-block;
+}
+
+img {
+  object-fit: contain;
+}
+
+svg {
+  overflow: visible;
+}
+
+:host {
+  position: relative;
+  width: 100vw;
+  height:1160px;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.easybankgroupphoto1 {
+  position: absolute;
+  left: 0;
+  top: -296px;
+  width: 100%;
+  height: 844px;
+  background-image: url('../../assets/easybankgroupphoto.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.rectangle20 {
+  position: absolute;
+  left: -5px;
+  top: -4px;
+  width: 100%;
+  height: 552px;
+  background-image: linear-gradient(179.9deg, #007a7bff 0%, #000f 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+  z-index: 1;
+}
+.aboutUs {
+  color: #000;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  left: 594px;
+  top: 50%;
+  width: 247px;
+  height: 51px;
+  flex-direction: column;
+}
+.easyBankFoundedIn2023Revolutio {
+  color: #0000007d;
+  font-size: 23px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 11px;
+  top: 680px;
+  width: 1413px;
+  height: 134px;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+.rectangle21 {
+  position: relative;
+  left: 67px;
+  top: 851px;
+  width: 689px;
+  height: 187px;
+  overflow: visible;
+  margin: 34px 0 0 0;
+  background: #F9F6F4;
+  z-index: 5;
+  border-radius: 24px;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.capture_d_ecran_2024311_125134 {
+  position: absolute;
+  left: 813px;
+  top: 65%;
+  width: 555px;
+  height: 405px;
+  background-image: url('../../assets/Capture_d_écran_2024-03-11_125134-removebg-preview.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.anAccreditedTunisianFintechSta { 
+  /* color: #000;
+  font-size: 21px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 98px;
+  top: 900px;
+  width: 645px;
+  height: min-content;
+  flex-direction: column;
+   */
+   display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  width: 670px;
+  height: 252px;
+  top: 900px;
+  left:85px;
+  color: #000000;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 42.358px;
+  text-align: left;
+  z-index: 7;
+}
+.whyEasyBank {
+  color: #000;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Liberation Sans', sans-serif;
+  position: absolute;
+  left: 266px;
+  top: 770px;
+  width: min-content;
+  height: min-content;
+  white-space: nowrap;
+  flex-direction: column;
+}
+.line17 {
+  position: relative;
+  left: 543px;
+  top: 36%;
+  width: 314.0255px;
+  max-width: 100%;
+  height: 5.9998px;
+  max-height: 100%;
+}
+.line17::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transform: translateY(5.9998px) rotate(-0.7298deg);
+  width: 314.0255px;
+  height: 0;
+  outline: solid 1px #000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .easybankgroupphoto1,.rectangle20 {
+      width: 100%;
+  }
+
+  .hero {
+      height: auto;
+  }
+
+  .content, .about-text {
+      background-color: transparent; /* Adjust based on preference */
+      color: #000;
+  }
+
+  h1, h2 {
+      color: #000;
+  }
+}

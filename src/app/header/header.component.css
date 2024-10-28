@@ -1,0 +1,20 @@
+<div class="main-container">
+  <div routerLink="/register" class="group"></div>
+  <a routerLink="/signin"><span class="log-in">Login</span></a>
+  <div class="frame-1">
+    <a routerLink="/services" class="path"><span class="our-services">Our Services</span></a>
+
+    <span class="company">Company</span>
+    <span class="contact-us">Contact us</span>
+    <span class="q-a">Q/A</span>
+  </div>
+</div>
+
+<app-header></app-header>
+<app-main></app-main>
+<app-reviews></app-reviews>
+<app-partenariat></app-partenariat>
+<app-about></app-about>
+<app-qa></app-qa>
+<app-team></app-team>
+<app-contact></app-contact>

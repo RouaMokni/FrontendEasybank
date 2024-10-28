@@ -1,0 +1,1116 @@
+<div *ngIf="isAuthenticated">
+    <div>
+        <button  onclick="showForm0('simu1');scrollToBottomSmooth();calculateEstimatedAmount()">Voulez vous calculer votre monnat estimé</button>
+    </div>
+    <div id="simu1" style=" display :  none;">
+            <label for="salaire" class="titre">الأجر الصافي - Salary </label>
+            <input type="text" class="inputText" id="salaire" name="salaire" oninput="checkNameAndToggleRadios()">
+        
+            <label for="montantcrédit">مبلغ القرض المطلوب بالدينار​   </label>
+            <input type="number" class="inputNumber" name="montantcrédit" id="montantcrédit">
+        
+            <label for="durée_crédit" class="titre"> (شهر)مدة الائتمان - durée de crédit (mois )   </label>
+            <input type="number" class="inputNumber" id="durée_crédit" name="durée_crédit" placeholder="مثال  1 سنة ">
+            
+            <button onclick="calculateEstimatedAmount();showForm0('resultat');scrollToBottomSmooth()">Calculer montant estimé</button>
+    </div>
+        
+        <div id="resultat" style="display: none;"></div>
+    <form id="DForm">
+        <div id="first">  
+                <h3>الاستمارة</h3> 
+    
+                <label for="fullName" class="titre">الإسم و اللقب - Full Name </label>
+                <input type="text" class="inputText"id="fullName" name="fullName"    oninput="checkNameAndToggleRadios()">
+                
+                <label for="residence" class="titre">Place of Residence - بلد الإقامة </label>
+                
+                    <table><tr><td>  <input type="radio" id="tunisie" class="custom-radio" name="residence" value="tunisie" disabled onclick="showForm0('div0');closeDivById('div00');scrollToBottomSmooth()">
+                    </td><td><label for="tunisie">تونس​ - Tunisie</label></td></tr> <tr><td>   <input type="radio" id="externe" class="custom-radio"name="residence" value="externe" disabled onclick="showForm0('div00');closeDivById('div0');scrollToBottomSmooth()">
+                    </td><td><label for="externe">خارج تونس​ </label></td></tr></table>
+                    
+            </div>
+    
+        <div id="div0" style=" display :  none;">
+    
+                <h3>الاستمارة</h3>
+                
+                <label for="phoneNumber" class="titre">رقم هاتف - Phone Number </label>
+                <input type="tel" id="phoneNumber" name="phoneNumber"     oninput="enableProfessionRadios()">
+                
+                <label for="email" class="titre">البريد الالكتروني email   </label>
+                <input type="email" id="email" name="email" oninput="enableProfessionRadios()" >
+    
+                <p class="titre">الولاية</p>
+                <select name="state">
+                    <option value="Ariana">أريانة</option>
+                    <option value="Beja">باجة</option>
+                    <option value="Ben Arous">بن عروس</option>
+                    <option value="Bizerte">بنزرت</option>
+                    <option value="Tunis">تونس</option>
+                    <option value="Tataouine">تطاوين</option>
+                    <option value="Jendouba">جندوبة</option>
+                    <option value="Zaghouan">زغوان</option>
+                    <option value="Siliana">سليانة</option>
+                    <option value="Sousse">سوسة</option>
+                    <option value="Kasserine">القصرين</option>
+                    <option value="Kairouan">القيروان</option>
+                    <option value="Kef">الكاف</option>
+                    <option value="Gabes">قابس</option>
+                    <option value="Kebili">قبلي</option>
+                    <option value="Medenine">مدنين</option>
+                    <option value="Manouba">منوبة</option>
+                    <option value="Mahdia">المهدية</option>
+                    <option value="Monastir">المنستير</option>
+                    <option value="Nabeul">نابل</option>
+                    <option value="Sfax">صفاقس</option>
+                    <option value="Sidi Bouzid">سيدي بوزيد</option>
+                    <option value="Tozeur">توزر</option>
+                </select>
+                
+        <br><br>
+        <label for="codep" class="titre">الترقيم البريدي</label>
+                <input type="number" class="inputNumber"id="codePostal" name="codePostal" >
+                <br><br>
+                <label for="fulladd" class="titre">العنوان كاملا -  Full Adress </label>
+                <input type="text" class="inputText"id="fulladd" name="fulladd"   oninput="enableProfessionRadios()">
+                <button type="button" onclick="alr()">إرسال</button>
+        </div>
+        <div id="dvi" style=" display :  none;">
+    
+                <!--profession -->
+                <label for="Profession" class="titre">Profession - المهنة  </label>
+                <table>
+                    <tr><td>            <input type="radio" id="Employee" name="profession" value="Employee" disabled onclick="showForm0('div1');closeDivById('divBatinda');closeDivById('divcharika');closeDivById('div_ret');closeDivById('div3');maskOtherRadios(this);scrollToBottomSmooth()">
+                    </td><td><label for="Employee">موظف مرسم -Permanent Employee</label></td></tr>
+                    <tr><td>            <input type="radio" id="Contract" name="profession" value="Contract" disabled onclick="showForm0('div_notif4');disableOtherDivs('div_notif4'); maskOtherRadios(this);scrollToBottomSmooth()">
+                    </td><td><label for="Contract">موظف غير مرسم - Contract Employee</label></td></tr>
+                    <tr><td>            <input type="radio" id="tax" name="profession" value="tax"  onclick="showForm0('divBatinda');closeDivById('div1');closeDivById('divcharika');closeDivById('div_ret');closeDivById('div3');maskOtherRadios(this);scrollToBottomSmooth()">
+                    </td><td><label for="tax">تشتغل لحسابك الخاص و لديك معرف جبائي (باتيندة) - Liberal Profession and have a Tax Identification Number</label>
+                    </td></tr>
+                    <tr><td>            <input type="radio" id="nottax" name="profession" value="nottax" disabled onclick="showForm0('div_notif16');disableOtherDivs('div_notif16');maskOtherRadios(this);scrollToBottomSmooth()">
+                    </td><td>            <label for="nottax">تشتغل لحسابك الخاص و ليس لديك معرف جبائي (باتيندة) - Liberal Profession and do not have a Tax Identification Number</label>
+                    </td></tr>
+                    
+                    <tr><td>            <input type="radio" id="charika" name="profession" value="charika" disabled onclick="showForm0('divcharika');closeDivById('divBatinda');closeDivById('div1');closeDivById('div_ret');closeDivById('div3');maskOtherRadios(this);scrollToBottomSmooth()">
+                    </td><td>            <label for="charika">عندك شركة قائمة الذات​</label>
+                    </td></tr>
+                    <tr><td>            <input type="radio" id="Retired" name="profession" value="Retired" disabled  onclick="showForm0('div_ret');closeDivById('divBatinda');closeDivById('divcharika');closeDivById('div1');closeDivById('div3');maskOtherRadios(this);scrollToBottomSmooth()">
+                    </td><td><label for="Retired">متقاعد - Retired</label></td></tr>
+                    
+                    <tr><td>            <input type="radio" id="unemployed" name="profession" value="unemployed" disabled onclick="maskOtherRadios(this);showForm0('div3');closeDivById('divBatinda');closeDivById('divcharika');closeDivById('div_ret');closeDivById('div1');scrollToBottomSmooth()">
+                    </td><td><label for="unemployed">عاطل عن العمل - Unemployed</label></td></tr>
+    
+                </table>
+    
+            </div>
+    
+            <!--forign-->
+            <div id="div00" style=" display :  none;">
+    
+                <h3>الاستمارة</h3>
+                
+                <label for="WhatsappphoneNumbernum" class="titre">رقم  الواتساب  - Whatsapp Number </label>
+                <input type="number" class="inputNumber"id="phoneNumber" name="phoneNumber">
+                
+                <label for="email" class="titre">البريد الالكتروني email   </label>
+                <input type="email" id="email" name="email" >
+                <br>
+                <table>
+                    <tr>
+                        <td>        <input type="radio" id="arabic" name="country" value="arabic">                </td>
+                        <td>        <label for="ouirouge"> دولة عربية  - arabic country   </label>                </td>
+                    </tr>
+                    <tr>
+                        <td>        <input type="radio" id="forignn" name="country" value="forign" >                </td>
+                        <td>        <label for="nonrouge">دولة أجنبية  -   forign country</label>                </td>
+                    </tr>
+                </table>
+                <br>
+                <label for="fulladd" class="titre">العنوان كاملا -  Full Adress </label>
+                <input type="text" class="inputText"id="fulladd" name="fulladd"  >
+                
+    
+            <button type="button" onclick="ctr()">إرسال</button>
+            </div>
+    
+        <div id="forign2" style=" display :  none;">
+            <label for="contarcts" class="titre">  الوضعية المهنية  </label>
+            <table>
+                <tr>
+                    <td>        <input type="radio" id="mrassemf" name="contarcts" value="mrassemf" onclick="showForm0('div_notif19');disableOtherDivs('div_notif19')">            </td>
+                    <td>    <label for="mrassemf" class="titre">مرسم  </label>            </td>
+                </tr>
+                <tr>
+                    <td>        <input type="radio" id="contractfix" name="contarcts" value="contractfix"  onclick="showForm0('forign4');closeDivById('forign3');scrollToBottomSmooth()" >            </td>
+                    <td>        <label for="contractfix">لديك عقد عمل لمدة محددة  </label>            </td>
+                </tr>
+                <tr>
+                    <td>        <input type="radio" id="contractnonfix" name="contarcts" value="contractnonfix" onclick="showForm0('forign3');closeDivById('forign4');scrollToBottomSmooth()" >            </td>
+                    <td>        <label for="contractnonfix">لديك عقد عمل لمدة غير محددة  </label>            </td>
+                </tr>
+                <tr>
+                    <td>        <input type="radio" id="noContarct" name="contarcts" value="noContarct" onclick="showForm0('div_notif20');disableOtherDivs('div_notif20')">             </td>
+                    <td>        <label for="noContarct">ليس لديك عقد عمل    </label>            </td>
+                </tr>
+            </table>
+    
+    
+                </div>
+                <!--forign3-->
+                <div id="forign3" style="display: none;">
+                    <label for="seniority">الأقدمية في الوظيفة الحالية</label>
+                    <input type="number" class="inputNumber"id="seniorityy" name="seniorityy" placeholder="مثال  1 سنة " >
+                    <input type="number" class="inputNumber"id="senioritym" name="senioritym" placeholder=" مثال  11 شهراً" max="11">
+                    <button type="button" onclick="verfiforign()">إرسال</button>
+                </div>
+    
+                <!--forign4-->
+                <div id="forign4" style="display: none;">
+                    <label for="seniority">مدة العقد   </label>
+                    <input type="number" class="inputNumber"id="contracty" name="contracty" placeholder="مثال  1 سنة ">
+                    <input type="number" class="inputNumber"id="contractm" name="contractm" placeholder=" مثال  11 شهراً" max="11" >
+                    <label for="seniority">الأقدمية في الوظيفة الحالية</label>
+                    <input type="number" class="inputNumber"id="seniorityy" name="seniorityy" placeholder="مثال  1 سنة ">
+                    <input type="number" class="inputNumber"id="senioritym" name="senioritym" placeholder=" مثال  11 شهراً" max="11   ">
+                    <button type="button" onclick="verfiforign1()">إرسال</button>
+                </div>
+                
+            <!-- charika  -->
+        <div id="divcharika" style=" display :  none;">
+            <label for="charika" class="titre">  هل عندك تبادلات مع البنك (تدور مع البانكة)     </label>
+            <table>
+                <tr><td><input type="radio" id="charikaYes" name=   "charika" value="charikaYes" ></td><td><label for="charika"> أي    </label></td></tr>
+                <tr><td><input type="radio" id="charikaNo" name="charika" value="charikaNo" ></td><td><label for="charika">لا </label></td></tr>
+            </table>
+            <p class="titre">إسم البانكة إلي تتعامل معاها    </p>
+            <select name="bank">
+                <option value="Banque de Financement des Petites et Moyennes entreprises">Banque de Financement des Petites et Moyennes entreprises</option>
+                <option value="Banque de l'Habitat">Banque de l'Habitat</option>
+                <option value="Banque Zitouna">Banque Zitouna</option>
+                <option value="Société Tunisienne de Banque">Société Tunisienne de Banque</option>
+                <option value="Banque Tunisienne de Solidarité">Banque Tunisienne de Solidarité</option>
+                <option value="Attijari Bank">Attijari Bank</option>
+                <option value="Wifak International Bank">Wifak International Bank</option>
+                <option value="Arab Banking Corporation">Arab Banking Corporation</option>
+                <option value="Al Baraka Bank">Al Baraka Bank</option>
+                <option value="Banque Internationale Arabe de Tunisie">Banque Internationale Arabe de Tunisie</option>
+                <option value="Banque Tuniso-Libyenne">Banque Tuniso-Libyenne</option>
+                <option value="Banque Nationale Agricole">Banque Nationale Agricole</option>
+                <option value="Tunisian Saudi Bank">Tunisian Saudi Bank</option>
+                <option value="Amen Bank">Amen Bank</option>
+                <option value="Union Bancaire pour le Commerce et l'Industrie">Union Bancaire pour le Commerce et l'Industrie</option>
+                <option value="Banque de Tunisie et des Emirats">Banque de Tunisie et des Emirats</option>
+                <option value="Poste tunisienne">Poste tunisienne</option>
+                <option value="Union Internationale de Banque">Union Internationale de Banque</option>
+                <option value="Banque Tuniso Koweitienne">Banque Tuniso Koweitienne</option>
+                <option value="Qatar National Bank- Tunis">Qatar National Bank- Tunis</option>
+                <option value="Banque de Tunisie">Banque de Tunisie</option>
+                <option value="Arab Tunisian Bank">Arab Tunisian Bank</option>
+            </select>
+            <h2 class="titre"> أقدمية المشروع بالاشهر   </h2>
+            <input type="number" class="inputNumber"id="charikaInput">
+        
+    
+            
+                        <h2 class="titre">الأجر الصافي   </h2>
+                        <input type="number" class="inputNumber"id="madkhoull">
+                        <button type="button" onclick="vv2()">إرسال</button>
+        </div>
+    
+                <!-- charika2 -->
+                <div id="charika2" style=" display : none;">
+                
+                    <h3>الاستمارة</h3>
+                    <label for="cheque" class="titre">  عندك شيكات غير خالصة ​</label>
+                    <table>
+                        <tr>
+                            <td>                <input type="radio" id="ouicheque" name="cheque" value="ouicheaque"  onclick="showForm0('div_notif6');disableOtherDivs('div_notif6');" >                    </td>
+                            <td><label for="oui">اي-oui</label></td>
+                        </tr>
+                        <tr>
+                            <td>                <input type="radio" id="noncheque" name="cheque" value="noncheque" onclick="showForm0('charika3');scrollToBottomSmooth()">                    </td>
+                            <td>                <label for="non">لا- non</label>                    </td>
+                        </tr>
+                    </table>
+                        
+                </div>
+                <!-- charika3  -->
+            <div id="charika3" style=" display : none;">
+                <h3>الاستمارة</h3>
+            
+                <label for="rouge" class="titre">داخل في الروج​   </label>
+                <table>
+                    <tr><td>            <input type="radio" id="ouirouge" name="rouge" value="ouirouge"   onclick="showForm0('div_notif7');disableOtherDivs('div_notif7')">
+                    </td><td><label for="ouirouge"> اي  - oui</label></td></tr>
+                    <tr><td>            <input type="radio" id="nonrouge" name="rouge" value="nonrouge" onclick="showForm0('charika4');scrollToBottomSmooth()">
+                    </td><td> <label for="nonrouge">لا - non</label></td></tr>
+                </table>
+              
+            </div>
+            <!-- charika4-->
+            <div id="charika4" style=" display :  none;">
+                
+                    
+                <label for="situation" class="titre">هل عندك قرض حاليا؟</label>
+                    <table>
+                        <tr>
+                            <td><input type="radio" id="Firsttime" name="situation" value="Firsttime"   onclick="showForm0('charika5');scrollToBottomSmooth()"> </td>
+                            <td><label for="Firsttime">ليس عندي قرض حاليا, أريد قرض لأول مرة </label></td>
+                            </tr>
+                        <tr>
+                            <td><input type="radio" id="oldloanpaidcharika" name="situation" value="oldloanpaidcharika" onclick="showForm0('charika6');closeDivById('div_notif9');closeDivById('div_firstLoan');scrollToBottomSmooth()"></td>
+                            <td><label for="oldloanpaid"> عندي قرض حاليا من البنك واريد قرض اخر  </label></td>
+                            </tr>
+                            <tr> 
+                                <td><input type="radio" id="loanexistcharikasghira" name="situation" value="loanexistcharikasghira"onclick="showForm0('div_notif21');disableOtherDivs('div_notif21');;closeDivById('div_firstLoan');closeDivById('div_1_1');scrollToBottomSmooth()"> </td>
+                                <td><label for="loanexist">عندي قرض حاليا من مؤسسة تمويل أصغر واريد قرض اخر  </label></td>
+                                </tr>
+                        <tr> 
+                            <td><input type="radio" id="loanexistcharika" name="situation" value="loanexistcharika"onclick="showForm0('div_notif21');disableOtherDivs('div_notif21');;closeDivById('div_firstLoan');closeDivById('div_1_1');scrollToBottomSmooth()"> </td>
+                            <td><label for="loanexist">عندي أكثر من قرض </label></td>
+                            </tr>
+                    </table>
+                    
+        
+            </div>
+            
+            <!--charika5-->
+            <div id="charika5" style=" display :  none;">
+            <label for="firstTimeLoan">قرض اول مرة    </label>
+    
+            <label for="mablegh">مبلغ القرض المطلوب بالدينار​   </label>
+            <input type="number" class="inputNumber"name="mablegh" id="mablegh">
+    
+            <label for="why">الغرض من القرض  المطلوب</label>
+            <input type="text" class="inputText"id="why" name="why">
+            <button type="button" onclick="alrrr()">إرسال</button>
+            
+            </div>
+    
+    
+            <!--charika6-->
+            
+            <div id="charika6" style=" display :  none;">
+                <h2 class="titre">نوع القرض المتحصل عليه</h2>
+                <table>
+                    <tr><td><input type="radio" id="ba3thmachrou3" name="loanType" value="ba3thmachrou3"></td>    <td> <label>قرض بعث مشروع</label></td></tr>
+                    <tr><td><input type="radio" id="carcharika" name="loanType" value="carcharika" onclick="showForm0('divv');scrollToBottomSmooth()"></td>    <td><label> قرض سيارة</label></td></tr>
+                    <tr><td><input type="radio"id="realEstatecharika" name="loanType" value="realEstatecharika"></td>    <td><label>   قرض عقاري </label></td></tr>
+                    <tr><td><input type="radio"id="smallloancharika" name="loanType" value="smallloancharika"></td>   <td> <label>  قرض صغير</label></td></tr>
+                </table>
+                    <p class="titre">المؤسسة الي خديت من عندها القرض</p>
+                    
+        <select name="bank">
+            <option value="Banque de Financement des Petites et Moyennes entreprises">Banque de Financement des Petites et Moyennes entreprises</option>
+            <option value="Banque de l'Habitat">Banque de l'Habitat</option>
+            <option value="Banque Zitouna">Banque Zitouna</option>
+            <option value="Société Tunisienne de Banque">Société Tunisienne de Banque</option>
+            <option value="Banque Tunisienne de Solidarité">Banque Tunisienne de Solidarité</option>
+            <option value="Attijari Bank">Attijari Bank</option>
+            <option value="Wifak International Bank">Wifak International Bank</option>
+            <option value="Arab Banking Corporation">Arab Banking Corporation</option>
+            <option value="Al Baraka Bank">Al Baraka Bank</option>
+            <option value="Banque Internationale Arabe de Tunisie">Banque Internationale Arabe de Tunisie</option>
+            <option value="Banque Tuniso-Libyenne">Banque Tuniso-Libyenne</option>
+            <option value="Banque Nationale Agricole">Banque Nationale Agricole</option>
+            <option value="Tunisian Saudi Bank">Tunisian Saudi Bank</option>
+            <option value="Amen Bank">Amen Bank</option>
+            <option value="Union Bancaire pour le Commerce et l'Industrie">Union Bancaire pour le Commerce et l'Industrie</option>
+            <option value="Banque de Tunisie et des Emirats">Banque de Tunisie et des Emirats</option>
+            <option value="Poste tunisienne">Poste tunisienne</option>
+            <option value="Union Internationale de Banque">Union Internationale de Banque</option>
+            <option value="Banque Tuniso Koweitienne">Banque Tuniso Koweitienne</option>
+            <option value="Qatar National Bank- Tunis">Qatar National Bank- Tunis</option>
+            <option value="Banque de Tunisie">Banque de Tunisie</option>
+            <option value="Arab Tunisian Bank">Arab Tunisian Bank</option>
+        </select>
+        <br> <br>
+        
+                    <button type="button" onclick="alrrt()">إرسال</button>
+                
+            </div> 
+            
+            <!--charika7-->
+            <div id="charika7"  style=" display :  none;">
+                
+                <!-- X1  Duration of the loan obtained -->
+                <label for="loan_obtained_duration" class="titre">المدة الجملية لخلاص القرض المتحصل عليه</label>
+                <input type="text" class="inputText"id="loan_obtained_durationycharika" name="loan_obtained_durationy" placeholder="مثال  1 سنة ">
+                <input type="text" class="inputText"id="loan_obtained_durationmcharika" name="loan_obtained_durationm" placeholder=" مثال  11 شهراً">
+                
+                <!-- X2  Total Duration -->
+                <label for="total_duration" class="titre">المدة الخالصة </label>
+                <input type="text" class="inputText"id="total_durationycharika" name="total_durationy" placeholder="مثال  1 سنوات">
+                <input type="text" class="inputText"id="total_durationmcharika" name="total_durationm" placeholder="مثال  11 شهراً"  >
+                <!-- Y2  Monthly installment paid -->
+                <label for="monthly_paymentcharika" class="titre">القسط الشهري المدفوع </label>
+                <input type="number" class="inputNumber"id="monthly_paymentcharika" name="monthly_payment" placeholder="أدخل قيمة القسط الشهري">
+            
+                <button type="button"  onclick="verif4()">إرسال</button>
+                
+            </div>
+    
+            <div id="charika8" style=" display :  none;">
+            <label for="mablegh">  مبلغ القرض المطلوب بالدينار​    </label>
+            <input type="number" class="inputNumber"name="mablegh" id="mablegh">
+            
+            <label for="why">  الغرض من القرض  المطلوب    </label>
+            <input type="text" class="inputText"name="why" id="why">
+            <button type="button" value="إرسال" onclick="alrt()">إرسال</button>
+            </div>
+    
+    
+            <!-- metrassem -->
+            <div id="div1" style=" display : none;">
+                
+                <h3>الاستمارة</h3>
+                <label for="cheque" class="titre">  عندك شيكات غير خالصة ​</label>
+                <table>
+                    <tr>
+                        <td>            <input type="radio" id="ouicheque" name="cheque" value="ouicheque"  onclick="showForm0('div_notif6');disableOtherDivs('div_notif6');" >                </td>
+                        <td><label for="ouicheque">اي-oui</label></td>
+                    </tr>
+                    <tr>
+                        <td>            <input type="radio" id="noncheque" name="cheque" value="noncheque" onclick="showForm0('div1_1');scrollToBottomSmooth()">                </td>
+                        <td><label for="noncheque">لا- non</label></td>
+                    </tr>
+                </table>
+            
+                    
+                    
+            </div>
+            <!-- rouge  -->
+        <div id="div1_1" style=" display : none;">
+            <h3>الاستمارة</h3>
+    
+            <label for="rouge" class="titre">داخل في الروج​   </label>
+                <table>
+                    <tr>
+                        <td>        <input type="radio" id="ouirouge" name="rouge" value="ouirouge"   onclick="showForm0('div_notif7');disableOtherDivs('div_notif7')">                </td>
+                        <td><label for="ouirouge"> اي  - oui</label></td>
+                    </tr>
+                    <tr>
+                        <td>        <input type="radio" id="nonrouge" name="rouge" value="nonrouge" onclick="showForm0('div1_1_1');scrollToBottomSmooth()">                </td>
+                        <td>        <label for="nonrouge">لا - non</label>                </td>
+                    </tr>
+                </table>
+    
+        </div>
+        <!-- machrou3  -->
+        <div id="div3" style=" display : none;">
+            <h3>الاستمارة</h3>
+    
+            <label for="dirasa" class="titre">عندك دراسة مشروع   </label>
+                <table>
+                    <tr>
+                        <td>        <input type="radio" id="ouidirasa" name="dirasa" value="ouidirasa"   onclick="showForm0('div_notif12');disableOtherDivs('div_notif12')">                </td>
+                        <td><label for="ouidirasa"> اي  - oui</label></td>
+                    </tr>
+                    <tr>
+                        <td>        <input type="radio" id="nondirasa" name="dirasa" value="nondirasa" onclick="showForm0('div_notif5');disableOtherDivs('div_notif5');scrollToBottomSmooth()">                </td>
+                        <td>        <label for="nondirasa">لا - non</label>
+                        </td>
+                    </tr>
+                </table>
+     
+        </div>
+    
+        <!--typeOfPayment-->
+        <div id="div1_1_1" style=" display : none;">
+            <h3>الاستمارة</h3>
+    
+            <label for="kifech5las" class="titre">طريقة الحصول على الأجر   </label>
+                <table>
+                    <tr>
+                        <td>        <input type="radio" id="bank5las" name="kifech5las" value="bank5las" onclick="showForm0('div_nonrouge');scrollToBottomSmooth()">                </td>
+                        <td>        <label for="kifech5las">تحويل بنكي أو بريدي (عن طريق البانكة أو البوسطة)    </label>                </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>        <input type="radio" id="yidi" name="kifech5las" value="yidi"   onclick="showForm0('div_notif10');disableOtherDivs('div_notif10')">                </td>
+                        <td>        <label for="kifech5las"> مباشرة من عند المشغل (تاخذها في يدك)  </label>                </td>
+                        
+                    </tr>
+                </table>
+                
+    
+        </div>
+    
+        <!-- non rouge -->
+        <div id="div_nonrouge" style=" display :  none;">
+            
+                <h2 class="titre">الأجر الصافي بعد الاقتطاعات​ </h2>
+                <input type="number" class="inputNumber"id="salaire">
+                <button type="button" onclick="verif()">إرسال</button>
+            
+            </div>
+    
+            <!-- batinda  -->
+        <div id="divBatinda" style=" display :  none;">
+            
+        <h2 class="titre"> عمر الباتيندة بالأشهر </h2>
+            <input type="number" class="inputNumber"id="batindaInput" name="batindaInput">
+            <h2 class="titre">المدخول الشهري بالدينار      </h2>
+            <input type="number" class="inputNumber"id="madkhoul">
+            
+            <button type="button" onclick="vv()">إرسال</button>
+    
+        </div>
+        <div id="divBatinda02" style=" display :  none;">
+            
+            
+            <label for="qaem" class="titre">  المشروع مزال قائم        </label>
+            <table>
+                <tr>
+                    <td>    <input type="radio" id="ouiqaem" name="qaem" value="ouiqaem"   onclick="showForm0('divBatinda2');scrollToBottomSmooth()">            </td>
+                    <td>    <label for="ouiqaem">نعم </label>            </td>
+                    
+                </tr>
+                <tr>
+                    <td>    <input type="radio" id="noqaem" name="qaem" value="noqaem" onclick="showForm0('div_notif000')">            </td>
+                    <td>    <label for="noqaem">   لا   </label>            </td>
+                    
+                </tr>
+                
+            </table>
+    
+            
+            </div>
+    
+            <!-- batinda2  -->
+            <div id="divBatinda2" style=" display :  none;">
+            
+            
+            <label for="kard3andk" class="titre">   عندك قرض جاري         </label>
+            <table>
+                <tr>
+                    <td>    <input type="radio" id="no9ard" name="kard3andk" value="no9ard"   onclick="showForm0('divBatinda3');closeDivById('divv');scrollToBottomSmooth()">            </td>
+                    <td>    <label for="ouirouge">لا </label>            </td>
+                    
+                </tr>
+                <tr>
+                    <td>    <input type="radio" id="oui9ardbank" name="kard3andk" value="oui9ardbank" onclick="showForm0('divv');closeDivById('divBatinda3');scrollToBottomSmooth()">            </td>
+                    <td>    <label for="nonrouge"> أي مالبانكة    </label>            </td>
+                    
+                </tr>
+                <tr>
+                    <td>    <input type="radio" id="ouiSmallLoan" name="kard3andk" value="ouiSmallLoan"   onclick="showForm0('div_notif13');disableOtherDivs('div_notif13')">            </td>
+                    <td>    <label for="ouirouge">أي من مؤسسة تمويل صغرى    </label>            </td>
+                    
+                </tr>
+            </table>
+            
+    
+            </div>
+    
+            <!-- batinda3  -->
+            <div id="divBatinda3" style=" display :  none;">
+            
+            
+                
+            <label for="charika" class="titre">  هل عندك تبادلات مع البنك (تدور مع البانكة)     </label>
+            <table>
+                <tr>
+                    <td>    <input type="radio" id="charikayes" name=   "charika" value="charikayes" onclick="showForm0('div_notif15');disableOtherDivs('div_notif15')">            </td>
+                    <td>    <label for="nonrouge"> أي    </label>            </td>
+                    
+                </tr>
+                <tr>
+                    <td>    <input type="radio" id="charikano" name="charika" value="charikano"   onclick="showForm0('div_notif14');disableOtherDivs('div_notif14');">            </td>
+                    <td>    <label for="ouirouge">لا </label>            </td>
+                    
+                </tr>
+            </table>
+            
+            
+            </div>
+    
+            <!-- loan -->
+            <div id="div_loan" style=" display :  none;">
+            
+                    
+                <label for="situation" class="titre">هل عندك قرض حاليا؟</label>
+                <table>
+                    <tr>
+                        <td>            <input type="radio" id="Firsttime2" name="situation" value="Firsttime2"   onclick="showForm0('div_firstLoan');closeDivById('div_1_1');closeDivById('div_notif9');scrollToBottomSmooth()">                </td>
+                        <td>            <label for="Firsttime">ليس عندي قرض حاليا, أريد قرض لأول مرة </label>                </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>            <input type="radio" id="oldloanpaid" name="situation" value="oldloanpaid" onclick="showForm0('div_1_1');closeDivById('div_notif9');closeDivById('div_firstLoan');scrollToBottomSmooth()">                </td>
+                        <td>            <label for="oldloanpaid"> عندي قرض حاليا من البنك واريد قرض اخر  </label>                </td>
+                        
+                    </tr>
+                    <tr> 
+                        <td><input type="radio" id="loansghir" name="situation" value="loansghir"onclick="showForm0('div_notif210');disableOtherDivs('div_notif21');;closeDivById('div_firstLoan');closeDivById('div_1_1');scrollToBottomSmooth()"> </td>
+                        <td><label for="loanexist">عندي قرض حاليا من مؤسسة تمويل أصغر واريد قرض اخر  </label></td>
+                        </tr>
+                <tr> 
+                    <tr>
+                        <td>            <input type="radio" id="loanexist" name="situation" value="loanexist"onclick="showForm0('div_notif9');disableOtherDivs('div_notif9');closeDivById('div_firstLoan');closeDivById('div_1_1');scrollToBottomSmooth()">                </td>
+                        <td>            <label for="loanexist">عندي أكثر من قرض </label>                </td>
+                        
+                    </tr>
+                </table>
+                    
+    
+    
+            </div>
+            <!-- first loan -->
+            <div id="div_firstLoan" style=" display :  none;">
+            <label for="mablegh" class="titre">  مبلغ القرض المطلوب بالدينار​  </label>
+                <input type="text" class="inputText"id="mablegh" name="mablegh"  >
+            <label for="loanType" class="titre"> نوع القرض  المطلوب​</label>
+                
+            <table>
+                <tr>
+                    <td>            <input type="radio" id="istihlaki" name="loanType" value="istihlaki"   onclick="showForm0('div_notif3');disableOtherDivs('div_notif3');">            </td>
+                    <td>            <label for="istihlaki">قرض استهلاكي​</label>            </td>
+                    
+                </tr>
+                <tr>
+                    <td>            <input type="radio" id="3a9ari" name="loanType" value="3a9ari"  onclick="showForm0('div_notif2');disableOtherDivs('div_notif2')">            </td>
+                    <td>            <label for="a9ari"> قرض عقاري​ </label>            </td>
+                    
+                </tr>
+                <tr>
+                    <td>            <input type="radio" id="karhba" name="loanType" value="karhba" onclick="showForm0('div_notif1');disableOtherDivs('div_notif1')">            </td>
+                    <td><label for="karhba"> قرض سيارة​ </label></td>
+                    
+                </tr>
+            </table>
+    
+            </div>
+    
+            <!-- Seconde loan -->
+            <div id="div_SecondeLoan" style=" display :  none;">
+                <label for="mablegh" class="titre"> مبلغ القرض المطلوب​ بالدينار​  </label>
+                    <input type="text" class="inputText"id="mablegh" name="mablegh"  >
+                <label for="loanType" class="titre" > نوع القرض  المطلوب​</label>
+                    
+                <table>
+                    <tr>
+                        <td>                <input type="radio" id="istihlaki" name="loanType" value="istihlaki"   onclick="verifistahlaki()">                </td>
+                        <td>                <label for="istihlaki">قرض استهلاكي​</label>                </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>                <input type="radio" id="3a9ari" name="loanType" value="3a9ari"  onclick="showForm0('div_notif2');disableOtherDivs('div_notif2');scrollToBottomSmooth()">                </td>
+                        <td>                <label for="a9ari"> قرض عقاري​ </label>                </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>                <input type="radio" id="karhba" name="loanType" value="karhba" onclick="showForm0('div_notif1');disableOtherDivs('div_notif1');scrollToBottomSmooth()">                </td>
+                        <td>                <label for="karhba"> قرض سيارة​ </label>                </td>
+                        
+                    </tr>
+                </table>
+            
+            
+                    
+                </div>
+                <!-- retraité -->
+    
+        <div id="div_ret" style=" display : none;">
+            <h2 class="titre">العمر​ </h2>
+            <input type="number" class="inputNumber"id="ageInput">
+            <!-- Ajout de type="button" pour empêcher la soumission du formulaire -->
+            <button type="button"  onclick="v2()">إرسال</button>
+            
+        </div>
+    
+    
+        <div id="div_ret2" style=" display : none;">
+            
+                <h2 class="titre">الجراية </h2>
+                <input type="number" class="inputNumber"id="jiraya">
+                <button  type="button" onclick="v3()">إرسال</button>
+            
+            </div>
+            
+    
+    
+            <div id="div_loan2" style=" display :  none;">
+            
+                    
+                <label for="situation" class="titre">هل عندك قرض حاليا؟</label>
+                
+                <table>
+                    <tr>
+                        <td>            <input type="radio" id="Firsttime1" name="situation" value="Firsttime1"   onclick="showForm0('div_notif18');disableOtherDivs('div_notif18');closeDivById('div_1_1');closeDivById('div_notif9');scrollToBottomSmooth()">                </td>
+                        <td>            <label for="Firsttime">ليس عندي قرض حاليا, أريد قرض لأول مرة </label>                </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>            <input type="radio" id="oldloanpaid" name="situation" value="oldloanpaid" onclick="showForm0('div_1_1');closeDivById('div_firstLoan');scrollToBottomSmooth()">                </td>
+                        <td>            <label for="oldloanpaid"> عندي قرض حاليا من البنك واريد قرض اخر  </label>                </td>
+                        
+                    </tr>
+                    <tr> 
+                        <td><input type="radio" id="laonretsghir" name="situation" value="laonretsghir"onclick="showForm0('div_notif210');disableOtherDivs('div_notif21');;closeDivById('div_firstLoan');closeDivById('div_1_1');scrollToBottomSmooth()"> </td>
+                        <td><label for="loanexist">عندي قرض حاليا من مؤسسة تمويل أصغر واريد قرض اخر  </label></td>
+                        </tr>
+                <tr> 
+                    <tr>
+                        <td>            <input type="radio" id="loanexist" name="situation" value="loanexist"onclick="showForm0('div_notif9');disableOtherDivs('div_notif9');closeDivById('div_firstLoan');closeDivById('div_1_1');scrollToBottomSmooth()">                </td>
+                        <td>            <label for="loanexist">عندي أكثر من قرض </label>                </td>
+                        
+                    </tr>
+                </table>
+    
+    
+    
+            </div>
+    
+    
+            <!-- naw3_9ardh -->
+            <div id="div_1_1" style=" display :  none;">
+                <h2 class="titre">نوع القرض المتحصل عليه</h2>
+                <table>
+                    <tr>
+                        <td>                <input type="radio"id="Consumer" name="loanType" value="consumer">                </td>
+                        <td> <label>
+                            قرض إستهلاكي
+                        </label></td>
+                        
+                    </tr>
+                    <tr>
+                        <td> <input type="radio" id="car" name="loanType" value="car" ></td>
+                        <td> <label>
+                    
+                            قرض سيارة
+                        </label></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="realEstate" name="loanType" value="realEstate"></td>
+                        <td>  <label>
+                        
+                            قرض عقاري
+                        </label></td>
+                        
+                    </tr>
+                </table>
+    
+                    <p class="titre">المؤسسة الي خديت من عندها القرض</p>
+                    
+        <select name="bank">
+            <option value="Banque de Financement des Petites et Moyennes entreprises">Banque de Financement des Petites et Moyennes entreprises</option>
+            <option value="Banque de l'Habitat">Banque de l'Habitat</option>
+            <option value="Banque Zitouna">Banque Zitouna</option>
+            <option value="Société Tunisienne de Banque">Société Tunisienne de Banque</option>
+            <option value="Banque Tunisienne de Solidarité">Banque Tunisienne de Solidarité</option>
+            <option value="Attijari Bank">Attijari Bank</option>
+            <option value="Wifak International Bank">Wifak International Bank</option>
+            <option value="Arab Banking Corporation">Arab Banking Corporation</option>
+            <option value="Al Baraka Bank">Al Baraka Bank</option>
+            <option value="Banque Internationale Arabe de Tunisie">Banque Internationale Arabe de Tunisie</option>
+            <option value="Banque Tuniso-Libyenne">Banque Tuniso-Libyenne</option>
+            <option value="Banque Nationale Agricole">Banque Nationale Agricole</option>
+            <option value="Tunisian Saudi Bank">Tunisian Saudi Bank</option>
+            <option value="Amen Bank">Amen Bank</option>
+            <option value="Union Bancaire pour le Commerce et l'Industrie">Union Bancaire pour le Commerce et l'Industrie</option>
+            <option value="Banque de Tunisie et des Emirats">Banque de Tunisie et des Emirats</option>
+            <option value="Poste tunisienne">Poste tunisienne</option>
+            <option value="Union Internationale de Banque">Union Internationale de Banque</option>
+            <option value="Banque Tuniso Koweitienne">Banque Tuniso Koweitienne</option>
+            <option value="Qatar National Bank- Tunis">Qatar National Bank- Tunis</option>
+            <option value="Banque de Tunisie">Banque de Tunisie</option>
+            <option value="Arab Tunisian Bank">Arab Tunisian Bank</option>
+        </select>
+        <br><br>
+    
+    
+                    <button type="button" onclick="alrr()">إرسال</button>
+            
+            </div>
+    
+    
+            <div id="divv" class="form-container" style=" display :  none;">
+            
+                <!-- X1  Duration of the loan obtained -->
+                <label for="loan_obtained_duration" class="titre">المدة الجملية لخلاص القرض المتحصل عليه</label>
+                <input type="number" class="inputNumber"id="loan_obtained_durationy" name="loan_obtained_durationy" placeholder="مثال  1 سنة ">
+                <input type="number" class="inputNumber"id="loan_obtained_durationm" name="loan_obtained_durationm" placeholder=" مثال  11 شهراً">
+                
+                <!-- X2  Total Duration -->
+                <label for="total_duration" class="titre">المدة الخالصة </label>
+                <input type="number" class="inputNumber"id="total_durationy" name="total_durationy" placeholder="مثال  1 سنوات">
+                <input type="number" class="inputNumber"id="total_durationm" name="total_durationm" placeholder="مثال  11 شهراً"   >
+                <!-- Y2  Monthly installment paid -->
+                <label for="monthly_payment" class="titre">القسط الشهري المدفوع </label>
+                <input type="number" class="inputNumber"id="monthly_payment" name="monthly_payment" placeholder="أدخل قيمة القسط الشهري">
+            
+                <button type="button"  onclick="verif3()">إرسال</button>
+            
+            </div>
+    
+    
+        <!-- notification -->
+        <div id="div_notif" class="notification" style=" display :  none;">
+            <p>       EasyBank شكرا على ثقتكم في​  <br>
+                الأجر الأدنى إلي تنجم تتمتع بيه بقرض بنكي هوا 700 دينار
+        ننصحوك تتوجه لأقرب مؤسسة تمويل أصغر بحذاك و تشوف معاهم الإمكانية .
+    
+        <br>
+                <br>
+                <br>    
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+        <!-- notification 1 -->
+        <div id="div_notif1" class="notification" style=" display :  none;">
+            <p>   EasyBank شكرا على ثقتكم في​     <br>
+                باش تتمتع بقرض السيارة لازمك تمويل ذاتي ب 40% من قيمة السيارة
+                سجلنا المعطيات اللازمة و نعاودو نتصلو بيك في أقرب وقت .
+    
+                <br>
+                <br>
+                <br>
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+    
+    
+    
+        <!-- notification2-->
+        <div id="div_notif2" class="notification" style=" display :  none;">
+            <p>     Easybank شكرا على ثقتكم في <br>
+                تنجم تتمتع بقرض عقاري و توصل مدة الخلاص حتى 25 سنة
+                سجلنا المعطيات اللازمة و نعاونو نتصلو بيك في أقرب وقت .
+            
+            <br>
+            <br>
+            <br>
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+    
+    
+    
+        <!-- notification3-->
+        <div id="div_notif3" class="notification" style=" display :  none;">
+            <p>     Easybank شكرا على ثقتكم في <br> <br>
+                تنجم تتمتع بقرض استهلاكي على مدة خمس سنوات
+                سجلنا المعطيات اللازمة و نعاودو نتصلو بيك في أقرب وقت.
+                <br>
+                <br>
+                <br>
+            
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+    
+    
+        <!-- notification4-->
+    
+        <div id="div_notif4" class="notification" style=" display :  none;">
+            <p>   Easybank شكرا على ثقتكم في <br>
+                في الوضعية متاعك أحنا دورنا نقدمولك المعلومة الي تعاونك بش تقضي شورك،
+                فما إمكانية إنك تاخذو قرض صغير يكون موجه لتحسينات صغيرة في المسكن،
+                القرض ناخذو من مؤسسة التمويل الأصغر، المؤسسة تطلب ضمانات كيما وجود ضامن من العايلة و يكون موظف مرسم،
+                تنجم تتوجه مباشرة ل إندا تمويل هي حاليا مؤسسة القرض الوحيدة الي تعطي قرض للشهار الي موش مرسم.
+                
+                <br>
+                <br>
+                <br>
+            
+            ​
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+    
+        <!-- notification5 -->
+        <div id="div_notif5" class="notification" style=" display :  none;">
+            <p>     
+                Easybank شكرا على ثقتكم في <br> <br>
+                الي ما يخدمش ما ينجم ياخو قرض كان في حالة واحدة يخمم في فكرة متاع مشروع يقنع بيها البانكة الي بش تسلفو 
+                ما تكونش فكرة متداولة و كلاسيكية يلزمها تكون قيمة مضافة جديدة تخلي البانكة تعطي فلوس حتى لو كان ما فماش ضمان،
+                بعد تجي مرحلة دراسة المشروع و الي يلزمها تكون دقيقة و منظمة و توري الي المشروع هذا مربح  .
+                <br>
+                <br>
+                <br>
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div> 
+        <!-- notification6-->
+    
+    
+    
+        <div id="div_notif6" class="notification" sstyle=" display :  none">
+            <p>    Easybank شكرا على ثقتكم في <br>
+                بش تنجم تتمتع بقرض لازم تخلص الشيكات المتخلدة.
+                <br>
+                <br>
+                <br>
+            
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+        <!-- notification7-->
+        <div id="div_notif7" class="notification" style=" display :  none;">
+            <p>    Easybank شكرا على ثقتكم في <br>
+                بش تنجم تتمتع بقرض لازم تخلص الروج.
+                <br>
+                <br>
+                <br>
+            
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+    
+        <!-- notification8-->
+        <div id="div_notif8" class="notification" style=" display :  none;">
+            <p> Easybank شكرا على ثقتكم في <br>
+                يمكنك التمتع بقرض إسعاف أو قرض تكميلي
+                سجلنا المعطيات اللازمة و نعاودو نتصلو بيك في أقرب وقت.
+                <br>
+                <br>
+                <br>
+            
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+        <!-- notification9-->
+        <div id="div_notif9" class="notification" style=" display :  none;">
+            <p>  Easybank شكرا على ثقتكم في <br>                                             
+                capacitéباش تنجم تزيد تتمتع بقرض اخر لازم ما تكونش فتت ماكس ال  
+                متاعك في الخلاص و هي 40% مالشهرية أو ما فتش شطر المدة في القرض متاعك الي قاعد تخلص فيه.
+                <br>
+                <br>
+    
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+    
+        <!-- notification10-->
+        <div id="div_notif10" class="notification" style=" display :  none;">
+            <p> Easybank شكرا على ثقتكم في <br> 
+                بش تنجم تتمتع بقرض لازم الشهرية تتصب عن طريق تحويل بنكي أو بريدي.
+                <br>
+                <br>
+                <br>
+    
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+        <!-- notification10-->
+        <div id="div_notif11" class="notification" style=" display :  none;">
+            <p>
+                Easybank شكرا على ثقتكم في <br>
+                بش تنجم تتمتع بقرض لازم عمر الباتيندة يكون 6 أشهر فما فوق.
+                
+                <br>
+                <br>
+                <br>
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+        <!-- notification12-->
+        <div id="div_notif12" class="notification" style=" display :  none;">
+            <p>
+                Easybank  شكرا على ثقتكم في <br>
+                سجلنا المعطيات اللازمة و نعاونو نتصلو بيك في أقرب وقت .
+                <br>
+                <br>
+                <br>
+                
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+        <!-- notification13-->
+        <div id="div_notif13" class="notification" style=" display :  none;">
+            <p>
+            Easybank شكرا على ثقتكم في <br>
+            تنجم تتمتع بقرض لازم تكمل تخلص قرضك الحالي.
+                <br>
+                <br>
+                <br>
+                
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+        <!-- notification14-->
+        <div id="div_notif14" class="notification" style=" display :  none;">
+            <p>  Easybank  شكرا على ثقتكم في <br>
+                في الوضعية متاعك فما إمكانية إنك تاخذو قرض صغير يكون موجه لتحسينات صغيرة في المسكن
+                ، القرض ناخذو من مؤسسة التمويل الأصغر
+                ، المؤسسة تطلب ضمانات كيما وجود ضامن من العايلة ولا الأصحاب و يكون موظف مرسم.
+                <br>
+                <br>
+                <br>
+                
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+        <!-- notification15-->
+        <div id="div_notif15" class="notification" style=" display :  none;">
+            <p>  Easybank شكرا على ثقتكم في <br>
+                <br>
+                نعاودو نكلموك في أقرب وقت نشالله.
+                <br>
+                <br>
+                <br>
+                
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+    
+        <!-- notification16-->
+        <div id="div_notif16" class="notification" style=" display :  none;">
+            <p>  
+                Easybank شكرا على ثقتكم في <br>
+                فما مؤسسات تمويل تعمل إستثناءات كي تحس الي الحريف يجتهد و يخدم على روحو
+                ، أحنا ننصحوك تتوجه لأقرب فرع إندا تمويل بحذاك وين تسكن و تقوللهم حكيت معانا و أحنا بعثناك.
+                <br>
+                <br>
+                <br>
+                
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+        <!-- notification17-->
+        <div id="div_notif17" class="notification" style=" display :  none;">
+            <p> Easybank  شكرا على ثقتكم في  <br>
+                هي الجراية الأدنى إلي تمكنك بش تتمتع بقرض  .
+                <br>
+                <br>
+                <br>
+                </p>
+                <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+            </div>
+    
+        <!-- notification18-->
+        <div id="div_notif18" class="notification" style=" display :  none;">
+            <p>  Easybank شكرا على ثقتكم في <br>
+                تنجم تتمتع بقرض استهلاكي على مدة خمس سنوات
+                سجلنا المعطيات اللازمة و نعاودو نتصلو بيك في أقرب وقت.
+                <br>
+                <br>
+                <br>
+            </p>       
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+        <!-- notification19-->
+        <div id="div_notif19" class="notification" style=" display :  none;">
+            <p>   Easybank شكرا على ثقتكم في <br>
+                تنجم تتمتع بقرض عقاري يخلص على مدة تتراوح ما بين 20 و 25 سنة.
+                <br>
+                <br>
+                <br>
+            </p>       
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+        <!-- notification20-->
+        <div id="div_notif20" class="notification" style=" display :  none;">
+            <p> Easybank  شكرا على ثقتكم في <br>
+                ما تنجمش تتمتع بقرض اذا ما عندكش عقد عمل.
+            <br>
+            <br>
+            <br>
+            </p>
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+    
+        <!-- notification21-->
+        <div id="div_notif21" class="notification" style=" display :  none;">
+            <p> Easybank شكرا على ثقتكم في <br>
+                سجلنا المعطيات اللازمة و نعاودو نتصلو بيك في أقرب وقت.
+            
+            <br>
+            <br>
+            <br>
+            </p>
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+        <!-- notification210-->
+        <div id="div_notif210" class="notification" style=" display :  none;">
+            <p> Easybank شكرا على ثقتكم في <br>
+                بش تنجم تتمتع بقرض بنكي أو حتى قرض من مؤسسة تمويل صغرى لازم القرض الحالي يخلص   .    
+            <br>
+            <br>
+            <br>
+            </p>
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+        <!-- notification00-->
+        <div id="div_notif00" class="notification" style=" display :  none;">
+            <p>
+                Easybank شكرا على ثقتكم في <br>
+                بش تنجم تتمتع بقرض, لازم عمرك يكون 65 عام فما أقل.
+                </p>
+            <br>
+            <br>
+            <br>
+            <label for="score0"></label>
+            <!-- <input type="hidden" id="score0" value="0"> -->
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+    
+        <!-- notification000-->
+        <div id="div_notif000" class="notification" style=" display :  none;">
+            <p> Easybank شكرا على ثقتكم في <br>   
+                بش تنجم تتمتع بقرض لازم المشروع يكون قائم و عندو مدخول قار.
+            <br>
+            <br>
+            <br>
+            
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+    
+        <!-- notification22-->
+        <div id="div_notif22" class="notification" style=" display :  none;">
+            <p>  Easybank شكرا على ثقتكم في <br><br>
+                تنجم تتمتع بقرض عقاري يخلص على مدة تتراوح ما بين 20 و 25 سنة
+            سجلنا المعطيات اللازمة و نعاودو نتصلو بيك في أقرب وقت
+            <br>
+            <br>
+            <br>
+            </p>
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+    
+        <!-- notification23-->
+        <div id="div_notif23" class="notification" style=" display :  none;">
+            <p>  Easybank شكرا على ثقتكم في <br><br>
+                سجلنا المعطيات اللازمة و نعاودو نتصلو بيك في أقرب وقت
+    
+            <br>
+            <br>
+            <br>
+            </p>
+            <button style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);" onclick="saveData();" id="submitFormButton">Fermer</button>
+        </div>
+    </form>
+    </div>
+    <div *ngIf="!isAuthenticated">
+      <p>You need to be authenticated to access this form. Please <a routerLink="/signin">sign in</a>.</p>
+    </div>

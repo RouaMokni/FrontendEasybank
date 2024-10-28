@@ -1,0 +1,35 @@
+<div class="main-container">
+    <div routerLink="/register" class="group"></div>
+    <!-- <a routerLink="/signin"><span class="log-in">Log in</span></a> -->
+      <a *ngIf="!isAuthenticated" routerLink="/signin"><span class="log-in">Log in</span></a>
+      <div *ngIf="isAuthenticated" >
+        <!-- <button (click)="logout()">Logout</button> -->
+      </div>
+    <div routerLink="/form" class="group"></div>
+    <div routerLink="/profile" class="group"></div>
+
+    <div class="frame-1">
+        <a class="path" href="home/#services"><span class="our-services"> Our Services</span></a>
+        <a class="path"  href="home/#company"><span class="company">Company</span></a>
+        <a class="path"  href="home/#contactus"><span class="contact-us">Contact us</span></a>
+        <a class="path"  href="home/#qa"><span class="q-a" >Q/A</span></a>
+    </div>
+  </div>
+
+  
+  <div class="chat-overlay" *ngIf="showChat">
+    <app-discussion></app-discussion> <!-- Embed the chat component -->
+  </div>
+  
+  <app-main ></app-main>
+
+  <app-reviews></app-reviews>
+  <app-partenariat></app-partenariat>
+  <app-about id="company"></app-about>
+  <app-services id="services"></app-services>
+  <app-qa id="qa"></app-qa>
+  <app-team></app-team>
+  <app-contact id="contactus"></app-contact>
+
+  
+  

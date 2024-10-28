@@ -1,0 +1,107 @@
+
+ <div class="profil-container">
+  <header>
+    <h1 class="title">Profil</h1>
+    <div class="button-group">
+      <button class="btn" (click)="goHome()">Go Home</button>
+      <button class="btn" (click)="logout()">Logout</button>
+    </div>
+  </header>
+
+  <section class="table-container">
+    <h2>Vos Formulaires</h2>
+    <div *ngIf="forms.length > 0; else noForms">
+      <div *ngFor="let form of forms" class="form-card">
+        <h3>{{ form.fullName }}'s Form</h3>
+        <table class="styled-table">
+          <tbody>
+            <tr>
+              <th>Nom Complet</th>
+              <td>{{ form.fullName }}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{ form.email }}</td>
+            </tr>
+            <tr>
+              <th>Adresse Complète</th>
+              <td>{{ form.fulladd }}</td>
+            </tr>
+            <tr>
+              <th>Résidence</th>
+              <td>{{ form.residence }}</td>
+            </tr>
+            <tr>
+              <th>Numéro de Téléphone</th>
+              <td>{{ form.phoneNumber }}</td>
+            </tr>
+            <tr>
+              <th>Ancienneté</th>
+              <td>{{ form.seniorityy }}</td>
+            </tr>
+            <tr>
+              <th>Situation</th>
+              <td>{{ form.situation }}</td>
+            </tr>
+            <tr>
+              <th>Profession</th>
+              <td>{{ form.profession }}</td>
+            </tr>
+            <tr>
+              <th>Pays</th>
+              <td>{{ form.country }}</td>
+            </tr>
+            <tr>
+              <th>État</th>
+              <td>{{ form.state }}</td>
+            </tr>
+            <tr>
+              <th>Montant</th>
+              <td>{{ form.mablegh }}</td>
+            </tr>
+            <tr>
+              <th>Pourquoi</th>
+              <td>{{ form.why }}</td>
+            </tr>
+            <tr>
+              <th>Revenu Mensuel</th>
+              <td>{{ form.madkhoull }}</td>
+            </tr>
+            <tr>
+              <th>Banque</th>
+              <td>{{ form.charik1bank }}</td>
+            </tr>
+            <tr>
+              <th>Salaire</th>
+              <td>{{ form.salaire }}</td>
+            </tr>
+            <tr>
+              <th>Type de Prêt</th>
+              <td>{{ form.loanType }}</td>
+            </tr>
+            <tr>
+              <th>Score</th>
+              <td>{{ form.score }}</td>
+            </tr>
+            <tr>
+              <th>Status de la Demande</th>
+              <td>
+                <span class="status-label" [ngClass]="{
+                  'pending': form.status === 'Pending',
+                  'accepted': form.status === 'Accepted',
+                  'rejected': form.status === 'Rejected'
+                }">
+                  {{ form.status }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ng-template #noForms>
+      <p>Aucun formulaire trouvé pour cet email.</p>
+    </ng-template>
+  </section>
+</div>
+

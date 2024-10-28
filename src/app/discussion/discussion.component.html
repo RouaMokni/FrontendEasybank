@@ -1,0 +1,27 @@
+
+<button class="chat-toggle-button" (click)="toggleChat()">
+  <img src="../../assets/chatbot-icon-chat.png" width="170%" alt="">
+</button>
+
+<div class="chat-container" *ngIf="showChat">
+  <div class="chat-header">
+    <span>Chatbot</span>
+    <button class="close-chat" (click)="toggleChat()">x</button>
+  </div>
+  <ul class="message-list">
+    <li *ngFor="let message of messages" [ngClass]="{'right': message.sender === 'user', 'left': message.sender !== 'user'}">
+      <div class="message">
+        <i *ngIf="message.sender === 'bot'" class="bi bi-robot message-icon"></i>
+        <i *ngIf="message.sender === 'user'" class="bi bi-person-circle message-icon"></i>
+        {{ message.text }}
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="isAuthenticated" class="input-area">
+    <input [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" placeholder="Type your message..." class="message-input">
+    <button (click)="sendMessage()" class="send-button"><i class="fas fa-paper-plane"></i></button>
+  </div>
+  <div *ngIf="!isAuthenticated" class="input-area">
+    <p>Please log in to chat with the bot.</p>
+  </div>
+</div>

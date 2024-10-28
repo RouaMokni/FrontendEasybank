@@ -1,0 +1,146 @@
+h3 {
+    color: #256f41;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 0 1px rgb(10, 153, 86), 0 0 0.31em rgb(135, 229, 210), 0 0 0.2em rgb(42, 135, 76);}
+
+div {
+    max-width: 1000px; /* Change from fixed width to max-width for flexibility */
+    width: 100%; /* Make div take full width on smaller screens */
+    background-color: #eafae4;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(34, 39, 36, 0.1);
+    margin: 20px auto;
+    align-items: center;
+    width: auto;
+    align-self: center;
+}
+.titre{
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;}
+
+div label,
+div input {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+
+div input[type=text],
+div input[type=tel],
+div input[type=number] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4cc079;
+    background-color: #f2f9f2;
+    border-radius: 5px;
+    font-size: 16px; /* Increase font size for better readability on mobile */
+}
+
+
+button {
+    background-color: #4cc079;
+    color: #fff;
+    /* border: none; */
+    border: 1px solid #29a710;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+}
+
+input[type="radio"] {
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-right: 0.5rem;
+}
+input {
+  /* The native appearance is hidden */
+   appearance: none; 
+    -webkit-appearance: none;  
+
+  /* The background will be the radio dot's color. */
+  background: #f2f9f2;
+
+  /* The border will be the spacing between the dot and the outer circle */
+  border: 1px solid #4cc079;
+
+  /* And by creating a box-shadow with no offset and no blur, we have an outer circle */
+  box-shadow: 0 0 0 0.5px #3e9d63;
+}
+input:checked {
+  /* When the radio is checked, we change the background color of the dot */
+  background: #4cc079;
+}
+select {
+    padding: 7px;
+    border: 1px solid #4cc079;
+    background-color: #f2f9f2;
+    box-shadow: 0 0 0 0.5px #3e9d63;
+    border-radius: 5px;
+    font-size: 16px; /* Increase font size for better readability on mobile */
+}
+
+
+
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Make width responsive */
+    max-width: 400px; /* Ensure it doesn't get too wide on larger screens */
+    background-color: #e0fad7;
+    border: 1px solid #2c7247;
+    padding: 40px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(1, 55, 6, 0.16);
+    display: none;
+    font-size: 18px;
+    text-align: right;  
+}
+
+.notification p {
+    margin: 0 0 10px 0;
+    font-size: 30px; /* Keep large font size for emphasis */
+}
+
+.notification button{
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+}
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    h3 {
+        font-size: 20px; /* Slightly smaller size on tablets and below */
+    }
+
+    div {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    div input[type=text],
+    div input[type=tel],
+    div input[type=submit] {
+        font-size: 14px; /* Adjust font size down for space */
+    }
+
+    .notification {
+        padding: 20px; /* Less padding to save space */
+        font-size: 16px; /* Adjust font size for readability on small devices */
+    }
+
+    .notification p {
+        font-size: 24px; /* Smaller font size for better fit */
+    }
+}

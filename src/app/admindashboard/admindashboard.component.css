@@ -1,0 +1,197 @@
+/* admindashboard.component.css
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .user-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+  }
+  
+  .user-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background: #f9f9f9;
+  }
+  .dashboard section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard div {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #f9f9f9;
+  } */
+  /* admin-dashboard.component.css */
+/* .container {
+  padding-top: 20px;
+}
+
+.table {
+  margin-top: 20px;
+} */
+/* admin-dashboard.component.css */
+/* admin-dashboard.component.css */
+/* admin-dashboard.component.css */
+/* admin-dashboard.component.css */
+/* admin-dashboard.component.css */
+/* admin-dashboard.component.css */
+/* admin-dashboard.component.css */
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  margin-top: 30px;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.1rem;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  color: #2c2b2b;
+  border-radius: 5px;
+}
+
+.edit-btn {
+  background-color: #007bff;
+}
+
+.view-btn {
+  background-color: #17a2b8;
+}
+
+.save-btn {
+  background-color: #28a745;
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #424242;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.status-btn.pending {
+  background-color: orange;
+}
+
+.status-btn.accepted {
+  background-color: green;
+  color: white;
+}
+
+.status-btn.refused {
+  background-color: red;
+  color: white;
+}
+

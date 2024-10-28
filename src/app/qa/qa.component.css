@@ -1,0 +1,83 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: #fff;
+  }
+  
+  .container {
+    margin: auto;
+    padding: 15px;
+  }
+  
+  .questionsAndAnswers {
+    font-size: 2rem;
+    color: #000;
+    text-align: center; /* Center align the main title */
+    margin-bottom: 1rem;
+  }
+  .question-icon {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    background: url('../../assets/Pngtreequestion\ mark\ vector\ icon_4017381.png') no-repeat center center;
+    background-size: contain;
+  }
+  .faq-item {
+    background-color: #f9f6f4;
+    margin-bottom: 1rem;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #007c7d;
+  }
+  
+  .faq-item h2 {
+    font-size: 23px;
+    color: #1ca659;
+    margin-bottom: .5rem;
+  }
+  
+  .faq-item p {
+    font-size: 20px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .questionsAndAnswers {
+      font-size: 1.5rem;
+    }
+  
+    .faq-item h2 {
+      font-size: 1rem;
+    }
+  
+    .faq-item p {
+      font-size: 0.875rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .faq-item {
+      padding: 15px;
+    }
+  
+    .faq-item h2 {
+      font-size: 0.9rem;
+    }
+  
+    .faq-item p {
+      font-size: 0.8rem;
+    }
+  }
+  
+  

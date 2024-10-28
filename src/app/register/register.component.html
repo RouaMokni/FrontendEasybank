@@ -1,0 +1,56 @@
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;700;800&display=swap" />
+
+<style>
+.form-control {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.error {
+  color: red;
+  font-size: 12px;
+}
+</style>
+<div class="main-container">
+  <div class="flex-row-ac">
+    <div class="whatsapp-image"></div>
+    <div class="rectangle"><a class="path" routerLink="/signin"><span class="register">Sign in</span></a></div>
+    <span class="register-text">Sign up</span>
+  </div>
+  <div class="flex-row-b">
+    <span class="welcome-to-community">Join our community</span>
+    <div class="rectangle-1">
+      <input type="text" class="form-control" [(ngModel)]="fullName" name="fullName" placeholder="Enter your full name" required #fullNameInput="ngModel">
+      <div *ngIf="fullNameInput.invalid && fullNameInput.touched" class="error">Full name is required</div>
+    </div>
+    <div class="rectangle-7">
+      <input type="email" class="form-control" [(ngModel)]="username" name="username" placeholder="Enter your email as username" required email #usernameInput="ngModel">
+      <div *ngIf="usernameInput.invalid && usernameInput.touched" class="error">
+        <div *ngIf="usernameInput.errors?.['required']">Email is required</div>
+        <div *ngIf="usernameInput.errors?.['email']">Invalid email format</div>
+      </div>
+    </div>
+    <div class="rectangle-2">
+      <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password" required minlength="6" #passwordInput="ngModel">
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="error">
+        <div *ngIf="passwordInput.errors?.['required']">Password is required</div>
+        <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 6 characters long</div>
+      </div>
+    </div>
+    <div class="rectangle-3">
+      <input type="password" class="form-control" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirm password" required #confirmPasswordInput="ngModel">
+      <div *ngIf="confirmPasswordInput.invalid && confirmPasswordInput.touched" class="error">Confirm password is required</div>
+      <div *ngIf="confirmPassword !== password && confirmPasswordInput.touched" class="error">Passwords do not match</div>
+    </div>
+  </div>
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <div class="flex-row-fc">
+    <span class="already-have-account"><a routerLink="/signin"> Already have an account?</a></span>
+    <button class="rectangle-5" (click)="register()" [disabled]="!fullNameInput.valid || !usernameInput.valid || !passwordInput.valid || !confirmPasswordInput.valid">
+      <span class="register-6">Sign up</span>
+    </button>
+  </div>
+</div>
+

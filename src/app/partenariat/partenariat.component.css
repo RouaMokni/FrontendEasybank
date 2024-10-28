@@ -1,0 +1,170 @@
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.main-container {
+  overflow: hidden;
+}
+
+.main-container,
+.main-container * {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.main-container {
+  position: relative;
+  width:100vw;
+  height: auto;
+  margin: 0 auto;
+  background: #f9f6f4;
+  overflow: hidden;
+}
+.frame-1 {
+  display: flex;
+  align-items: center;  
+  /* flex-wrap: nowrap; */
+   gap: 55px;
+  position: relative; 
+  width: 100%;
+   left:4%;
+   top: 3px;
+   height: min-content;
+}
+:host {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f9f6f4;
+  overflow: hidden;
+}
+.image-startup {
+  flex-shrink: 0;
+  position: relative;
+  width: 10%;
+  height: 149px;
+  background: url(../../assets/logostartup.png)
+    no-repeat center;
+  background-size: cover;
+  -webkit-filter: grayscale(100%) brightness(70%) contrast(100%);
+filter: grayscale(100%) brightness(70%) contrast(100%);
+  z-index: 1;
+}
+.image-leoni {
+  flex-shrink: 0;
+  position: relative;
+  width: 12%;
+  height: 62px;
+  background: url(../../assets/logoleoni.png)
+    no-repeat center;
+  background-size: cover;
+  -webkit-filter: grayscale(100%) brightness(70%) contrast(100%);
+filter: grayscale(100%) brightness(70%) contrast(100%);
+  z-index: 2;
+}
+.image-enda {
+  flex-shrink: 0;
+  position: relative;
+  width: 12%;
+  height: 85px;
+  background: url(../../assets/logoenda.png)
+    no-repeat center;
+  background-size: cover;
+  -webkit-filter: grayscale(100%) brightness(15%) contrast(100%);
+filter: grayscale(100%) brightness(15%) contrast(100%);
+  z-index: 3;
+}
+.image-ubci {
+  flex-shrink: 0;
+  position: relative;
+  width: 18%;
+  height: 88px;
+  background: url(../../assets/logo-banque-ubci-xs.png)
+    no-repeat center;
+  background-size: cover;
+  -webkit-filter: grayscale(100%) brightness(70%) contrast(100%);
+filter: grayscale(100%) brightness(70%) contrast(100%);
+  z-index: 4;
+}
+.image-wifak{
+  flex-shrink: 0;
+  position: relative;
+  width: 12%;
+  height: 129px;
+  background: url(../../assets/logowifak.png)
+    no-repeat center;
+  background-size: cover;
+  -webkit-filter: grayscale(100%) brightness(70%) contrast(100%);
+filter: grayscale(100%) brightness(70%) contrast(100%);
+  z-index: 5;
+}
+.image-bmk {
+  flex-shrink: 0;
+  position: relative;
+  width: 11%;
+  height: 136px;
+  background: url(../../assets/logobanque.png)
+    no-repeat center;
+  background-size: cover;
+  -webkit-filter: grayscale(100%) brightness(70%) contrast(100%);
+filter: grayscale(100%) brightness(70%) contrast(100%);
+  z-index: 6;
+}
+
+
+
+/* @media (max-width: 768px) {
+.frame-1 {
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 2%;
+}
+} */
+ 
+@media (max-width: 768px) {
+.frame-1 {
+  left: 0px;
+  gap: -1px;
+  padding: 0.5px;
+ }
+  .image-enda {
+    width: 8%;
+}
+}
+ 
+/* @media screen and (max-width: 480px) {
+.frame-1 {
+  left: 0px;
+  gap: -1px;
+  padding: 0.5px;
+ }
+  .image-bmk,.image-enda,.image-leoni,.image-startup,.image-ubci,.image-wifak {
+    width: 8%;
+}
+} */
+
+@media (max-width: 1280px) {
+.frame-1 {
+ left: 2px;
+ gap:-1px;
+ padding: 1px;
+}
+.image-bmk{
+width: 11%;
+}
+.image-ubci{
+width: 20%;
+}
+}
+  
